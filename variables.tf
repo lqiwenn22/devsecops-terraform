@@ -12,7 +12,7 @@ variable docker_cert_path {
     sensitive = true
 }
 
-variable "app namespace" {
+variable "app_namespace" {
     type = string
     default = "sg"
 }

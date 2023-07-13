@@ -73,13 +73,13 @@ resource "digitalocean_droplet" "nginx" {
     region = var.do_region
     size = var.do_size
 
-    ssh_keys = [data.data.digitalocean_ssh_key.ww-1.id]
+    ssh_keys = [data.digitalocean_ssh_key.ww-1.id]
 
     connection {
         type = "ssh"
         user = "root"
         private_key = file(var.ssh_private_key)
-        host = self.ipv4.address
+        host = self.ipv4_address
     }
 
     provisioner "remote-exec" {

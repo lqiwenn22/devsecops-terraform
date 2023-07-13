@@ -1,13 +1,13 @@
 #images
 resource "docker_image" "bgg-database" {
-    name = "chukmunlee/bgg-database:${var.database_version}"
+    name = "chukmunnlee/bgg-database:${var.database_version}"
 }
 
 resource "docker_image" "bgg-backed" {
-    name = "chukmunlee/bgg-backend:${var.backend_version}"
+    name = "chukmunnlee/bgg-backend:${var.backend_version}"
 }
 
-resource "docker_network" "bgg-network" {
+resource "docker_network" "bgg-net" {
     name = "${var.app_namespace}"
 }
 
@@ -63,7 +63,7 @@ resource "local_file" "nginx-conf" {
     })    
 }
 
-data "digitalocean_ssh_key" "DevSepOps" {
+data "digitalocean_ssh_key" "ww-1" {
     name = var.do_ssh_key
 }
 
@@ -73,7 +73,7 @@ resource "digitalocean_droplet" "nginx" {
     region = var.do_region
     size = var.do_size
 
-    ssh_keys = [data.data.digitalocean_ssh_key.DevSepOps.id]
+    ssh_keys = [data.data.digitalocean_ssh_key.ww-1.id]
 
     connection {
         type = "ssh"

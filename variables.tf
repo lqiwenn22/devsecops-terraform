@@ -34,7 +34,7 @@ variable backend_instance_count {
 
 variable do_region {
     type = string
-    default = "sg1"
+    default = "sgp1"
 }
 
 variable do_image {

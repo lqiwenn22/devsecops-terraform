@@ -58,7 +58,7 @@ resource "docker_container" "bgg-backend" {
 resource "local_file" "nginx-conf" {
     filename = "nginx.conf"
     content = templatefile("sample.nginx.conf.tftpl", {
-        docket_host = var.docker_host,
+        docker_host = var.docker_host,
         ports = docker_container.bgg-backend[*].ports[0].external
     })    
 }
